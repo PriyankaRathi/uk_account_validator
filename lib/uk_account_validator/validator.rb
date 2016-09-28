@@ -33,8 +33,6 @@ module UkAccountValidator
     def valid?
       return false unless valid_format?
 
-      return true if modulus_weights.empty? # If sort code not found in the file then validate the account
-
       exceptions = modulus_weights.map(&:exception)
       exception_class = self.exception_class(exceptions)
 
